@@ -1,0 +1,68 @@
+/*
+ * (C) Copyright 2018 Breedr Apps
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+buildscript {
+    ext.kotlin_version = '1.2.41'
+
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+    id 'application'
+}
+
+apply plugin: 'kotlin'
+
+group 'uk.breedrapps'
+version '0.0.1'
+
+ext.main = 'Bot'
+mainClassName = "$group.${main}Kt"
+
+compileKotlin {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'net.dv8tion:JDA:3.+'
+    compile 'com.jagrosh:jda-utilities:2.1'
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'io.pokemontcg:pokemon-tcg-sdk-kotlin:1.0.10'
+    compile 'com.natpryce:konfig:1.6.7.0'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile "io.reactivex.rxjava2:rxjava:2.1.4"
+    compile "com.squareup.okhttp3:logging-interceptor:3.9.1"
+    compile "com.squareup.retrofit2:retrofit:2.4.0"
+    compile "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    compile "com.squareup.retrofit2:converter-gson:2.4.0"
+    compile 'org.kodein.di:kodein-di-generic-jvm:5.0.0'
+}
