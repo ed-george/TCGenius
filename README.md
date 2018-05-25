@@ -22,7 +22,7 @@ TCGenius is a Pokémon Trading Card Discord bot written in Kotlin
 	* `!card [CARD-ID]` - Card matching ID (e.g. `!card [xy1-1]`) 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/ed-george/TCGenius/master/files/bot-example-1.png">
+    <img src="https://raw.githubusercontent.com/ed-george/TCGenius/master/files/bot-example-1.png" width="353">
 </p>
 
 ## Add to Discord 🤖 
