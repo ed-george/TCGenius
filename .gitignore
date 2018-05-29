@@ -49,3 +49,4 @@ build
 
 # hide sensitive data 
 server.properties
+server_debug.properties

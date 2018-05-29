@@ -36,6 +36,9 @@ import uk.breedrapps.manager.server
 import javax.security.auth.login.LoginException
 import kotlin.system.exitProcess
 
+// TODO: Make this into some global setting
+const val DEBUG = false
+
 private val waiter: EventWaiter by lazy {
     EventWaiter()
 }
@@ -44,13 +47,16 @@ val kodein = Kodein {
     bind<Pokemon>() with singleton { Pokemon() }
 }
 
+
 lateinit var config: Configuration
 
 fun main(args: Array<String>) {
 
+    val filename = if (DEBUG) "server_debug.properties" else "server.properties"
+
     config = systemProperties() overriding
             EnvironmentVariables() overriding
-            ConfigurationProperties.fromResource("server.properties")
+            ConfigurationProperties.fromResource(filename)
 
     val token = try { config[server.token] } catch (e: Misconfiguration) { exitProcess(1) }
     connect(token)

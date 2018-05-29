@@ -21,6 +21,7 @@ import net.dv8tion.jda.core.events.ExceptionEvent
 import net.dv8tion.jda.core.events.ReadyEvent
 import net.dv8tion.jda.core.events.ReconnectedEvent
 import net.dv8tion.jda.core.hooks.ListenerAdapter
+import uk.breedrapps.DEBUG
 
 class StartupManager : ListenerAdapter() {
     override fun onReady(event: ReadyEvent) {
@@ -40,6 +41,7 @@ class StartupManager : ListenerAdapter() {
         val selfUser = jda.selfUser
         println("""
         ||-========================================================
+        || ${if (DEBUG) "******DEBUG BUILD******" else "TCGenuis-Bot"}
         || Account Info: ${selfUser.name}#${selfUser.discriminator} (ID: ${selfUser.id})
         || Connected to ${jda.guilds.size} guilds, ${jda.textChannels.size} text channels
         || Status: ${jda.status}
