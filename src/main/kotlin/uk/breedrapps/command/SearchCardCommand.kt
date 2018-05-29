@@ -107,27 +107,43 @@ class SearchCardCommand : BaseCommand() {
 
                     it.text?.let {
                         it.forEachIndexed { index, text ->
-                            builder.addField("Text ${index+1}", text, false)
+                            builder.addField(
+                                    "Text".appendIndexSuffix(index, it),
+                                    text,
+                                    false
+                            )
                         }
                     }
 
                     it.attacks?.let {
                         it.forEachIndexed { index, attack ->
-                            builder.addField("Attack ${index+1}", attack.formattedAttack, false)
+                            builder.addField(
+                                    "Attack".appendIndexSuffix(index, it),
+                                    attack.formattedAttack,
+                                    false
+                            )
                         }
                     }
 
                     it.weaknesses?.let {
+                        val emote = it.map { it.type.emote }
                         it.forEachIndexed { index, effect ->
-                            val emote = it.map { effect.type.emote }.joinToString(" ")
-                            builder.addField("Weakness ${index+1}", "$emote ${effect.value}", true)
+                            builder.addField(
+                                    "Weakness".appendIndexSuffix(index, it),
+                                    "${emote[index]} ${effect.value}",
+                                    true
+                            )
                         }
                     }
 
                     it.resistances?.let {
+                        val emote = it.map { it.type.emote }
                         it.forEachIndexed { index, effect ->
-                            val emote = it.map { effect.type.emote }.joinToString(" ")
-                            builder.addField("Resistance", "$emote ${effect.value}", true)
+                            builder.addField(
+                                    "Resistance".appendIndexSuffix(index, it),
+                                    "${emote[index]} ${effect.value}",
+                                    true
+                            )
                         }
                     }
 
@@ -140,4 +156,9 @@ class SearchCardCommand : BaseCommand() {
                 }
     }
 
+}
+
+// Helper method for appending a given index to a string
+fun String.appendIndexSuffix(index: Int, collection: Collection<*>): String {
+    return if (collection.size > 1) "$this ${index + 1}" else this
 }
