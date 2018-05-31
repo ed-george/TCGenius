@@ -1,7 +1,7 @@
-# TCGenius 
-
-
-TCGenius is a Pokémon Trading Card Discord bot written in Kotlin
+<p align="center" width="400">
+    <img src="https://raw.githubusercontent.com/ed-george/TCGenius/master/files/logo.png">
+    TCGenius is a Pokémon Trading Card Discord bot written in Kotlin
+</p>
 
 --------------
 
@@ -58,5 +58,7 @@ I welcome contributions and discussion for new features or bug fixes. It is reco
 
 ## Thanks 💕
 
-This project uses the [Kotlin Pokemon TCG SDK](https://github.com/PokemonTCG/pokemon-tcg-sdk-kotlin) for [pokemontcg.io](https://pokemontcg.io/)   
+This project uses the [Kotlin Pokemon TCG SDK](https://github.com/PokemonTCG/pokemon-tcg-sdk-kotlin) for [pokemontcg.io](https://pokemontcg.io/)
+
+Logo designed by [Ray Cheung](https://twitter.com/dropstoproll) 🙌
 
