@@ -1,6 +1,5 @@
 <p align="center" width="400">
     <img src="https://raw.githubusercontent.com/ed-george/TCGenius/master/files/logo.png">
-    TCGenius is a Pokémon Trading Card Discord bot written in Kotlin
 </p>
 
 --------------
